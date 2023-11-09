@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"github.com/theghostmac/volatilityindex/data"
 	"github.com/theghostmac/volatilityindex/utils"
 	"github.com/theghostmac/volatilityindex/vix"
 	"os"
@@ -40,4 +41,14 @@ func main() {
 	returns := vix.CalculateReturns(sp500Values)
 	volatility := vix.CalculateVolatility(returns)
 	fmt.Printf("Volatility: %.2f%%\n", volatility*100)
+
+	options := []data.Option{
+		{StrikePrice: 100, Premium: 5},
+		{StrikePrice: 110, Premium: 4},
+	}
+	riskFreeRate := 0.01   // 1%
+	timeToExpiration := 30 // 30 days
+
+	vix := vix.CalculateVIX(options, riskFreeRate, float64(timeToExpiration))
+	fmt.Printf("VIX: %.2f\n", vix)
 }

@@ -11,3 +11,8 @@ type AssetClass struct {
 // PriceData is a response type when
 type PriceData struct {
 }
+
+type Option struct {
+	StrikePrice float64
+	Premium     float64
+}
