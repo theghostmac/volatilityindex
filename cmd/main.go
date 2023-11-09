@@ -17,7 +17,7 @@ func main() {
 	fmt.Println("Current working directory: ", cwd)
 
 	// Read CSV file using utils package.
-	filePath := "data/sp5000_index.csv"
+	filePath := "data/sp500_index.csv"
 	records, err := utils.ReadCSVFile(filePath)
 	if err != nil {
 		fmt.Println("Error reading CSV file: ", err)
@@ -29,6 +29,11 @@ func main() {
 	if err != nil {
 		fmt.Println("Error parsing dates and values: ", err)
 		return
+	}
+
+	if len(dates) > 0 {
+		fmt.Printf("Start Date: %s\n", dates[0].Format("2006-01-02"))
+		fmt.Printf("End Date: %s\n", dates[len(dates)-1].Format("2006-01-02"))
 	}
 
 	// Calculate returns and volatility
