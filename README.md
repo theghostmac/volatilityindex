@@ -10,4 +10,6 @@ Also known as the Fear Gauge.
 - [x] Get S&P 500 Options data from Kaggle.
 - [x] Write algorithm to calculate returns and volatility for all prices in the data.
 - [x] Healthy refactor of code.
+- [ ] Model data from external sources instead of CSV.
 - [ ] Write a pipe for fetching data of different Option types.
+- [ ] Pipe the data to the calculators.
